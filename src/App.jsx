@@ -1,73 +1,43 @@
 import React, { useState } from "react";
 import {
-  ArrowDownRight, ArrowRight, ArrowUpRight, Github, Linkedin, Mail,
-  Menu, X, Code2, Database, Smartphone, Terminal, Layers3, ExternalLink,
-  ChevronRight, Sparkles, GitBranch, MapPin
+  ArrowDownRight, ArrowRight, ArrowUpRight, Github, Mail,
+  Menu, X, Code2, Database, Smartphone, Terminal, GitBranch, MapPin
 } from "lucide-react";
 
 const GITHUB = "https://github.com/dimetri-softdev";
 const projects = [
   {
-    number: "01", name: "FinSight AI Analyzer", type: "Full-stack concept",
-    description: "A financial insights platform concept, planned around a .NET API and PostgreSQL backend, with an AI-assisted analysis direction.",
-    stack: ["C#", ".NET", "PostgreSQL", "Docker", "AI"],
-    accent: "violet", icon: "◈", status: "In development",
-    href: "https://github.com/MagnificentGarren/FinSight-AI-Analyzer"
+    number: "01", name: "Doctor Practice CMS API", type: "Backend API",
+    description: "An ASP.NET Core API for managing medical-practice content, doctor profiles and appointment requests. Includes JWT authentication, role-based access, SQL Server persistence and integration tests.",
+    stack: ["C#", "ASP.NET Core", "EF Core", "SQL Server", "JWT", "Integration testing"],
+    accent: "violet", icon: "⌘", status: "API project",
+    href: "https://github.com/dimetri-softdev/DoctorPracticeCmsApi"
   },
   {
-    number: "02", name: "Equili", type: "Android application",
-    description: "A personal finance and expense-tracking app concept with budgets, categories, receipt capture and a progress-focused dashboard.",
-    stack: ["Kotlin", "Android", "XML", "Firebase*"],
-    accent: "mint", icon: "◉", status: "Academic project",
-    href: GITHUB
+    number: "02", name: "Ecommerce API", type: "Backend API",
+    description: "A REST API for product catalogues and customer orders, with JWT authentication, role-based access, customer-scoped orders and transactional stock updates.",
+    stack: ["C#", "ASP.NET Core", "EF Core", "SQL Server", "JWT"],
+    accent: "mint", icon: "◉", status: "API project",
+    href: "https://github.com/dimetri-softdev/EcommerceApi"
   },
   {
-    number: "03", name: "TaskTracker", type: "Desktop application",
-    description: "A task management application built to practise clean separation of concerns, observable data and everyday CRUD workflows.",
-    stack: ["C#", "WPF", "MVVM", "JSON"],
-    accent: "blue", icon: "▤", status: "Learning project",
-    href: GITHUB
-  },
-  {
-    number: "04", name: "Student Manager", type: "Desktop application",
-    description: "A student records manager with search, selection, update and delete functionality, built as a practical C# desktop application.",
-    stack: ["C#", "WPF", "Collections"],
-    accent: "orange", icon: "⌘", status: "Learning project",
-    href: GITHUB
-  },
-  {
-    number: "05", name: "Library Manager", type: "Desktop application",
-    description: "A small library management app for managing book records and exploring observable collections and JSON persistence.",
-    stack: ["C#", "WPF", "JSON"],
-    accent: "pink", icon: "▥", status: "Learning project",
-    href: GITHUB
-  },
-  {
-    number: "06", name: "Campus Lost & Found", type: "Web application concept",
-    description: "A campus-focused concept for reporting, discovering and managing lost property through a structured application workflow.",
-    stack: ["ASP.NET Core", "C#", "SQL"],
-    accent: "cyan", icon: "⌖", status: "Concept",
-    href: GITHUB
+    number: "03", name: "Job Hunter", type: "Full-stack platform",
+    description: "A job-search platform for tracking applications and supporting career preparation, built with a Next.js and TypeScript frontend, PostgreSQL, Prisma, Clerk authentication, Python services and a browser extension.",
+    stack: ["Next.js", "TypeScript", "PostgreSQL", "Prisma", "Clerk", "Python"],
+    accent: "blue", icon: "↗", status: "Full-stack project",
+    href: "https://github.com/dimetri-softdev/Job-Hunter"
   }
 ];
 
 const skills = [
-  { title: "Backend development", detail: "C# · .NET · ASP.NET Core", icon: Code2 },
-  { title: "Databases", detail: "SQL Server · EF Core · PostgreSQL", icon: Database },
-  { title: "Application development", detail: "WPF · Kotlin · Android", icon: Smartphone },
-  { title: "Tools & workflow", detail: "Git · GitHub · Visual Studio", icon: Terminal }
+  { title: "Backend & APIs", detail: "C# · ASP.NET Core · REST · JWT", icon: Code2 },
+  { title: "Data & persistence", detail: "SQL Server · PostgreSQL · EF Core · SQLite", icon: Database },
+  { title: "Full-stack & mobile", detail: "Next.js · TypeScript · Kotlin · Jetpack Compose", icon: Smartphone },
+  { title: "Quality & workflow", detail: "Integration testing · Git · GitHub · Role-based access", icon: Terminal }
 ];
 
 function App() {
   const [menuOpen, setMenuOpen] = useState(false);
-  const [filter, setFilter] = useState("All");
-  const categories = ["All", "C# / .NET", "Android", "Concepts"];
-  const visibleProjects = projects.filter((p) => {
-    if (filter === "All") return true;
-    if (filter === "C# / .NET") return p.stack.some((s) => ["C#", ".NET", "WPF", "ASP.NET Core"].includes(s));
-    if (filter === "Android") return p.stack.includes("Kotlin");
-    return p.type.toLowerCase().includes("concept");
-  });
   const closeMenu = () => setMenuOpen(false);
 
   return (
@@ -87,14 +57,14 @@ function App() {
       <main>
         <section className="hero section-wrap" id="home">
           <div className="hero-copy">
-            <div className="eyebrow"><span className="status-dot" /> AVAILABLE FOR GRADUATE & JUNIOR OPPORTUNITIES</div>
+            <div className="eyebrow"><span className="status-dot" /> AVAILABLE FOR JUNIOR & GRADUATE DEVELOPER ROLES</div>
             <h1>Building useful<br /><span className="gradient-text">software</span> with<br />purpose<span className="period">.</span></h1>
-            <p className="hero-lede">I’m Dimetri Peters — a software development student focused on C#, .NET and creating practical applications that solve real problems.</p>
+            <p className="hero-lede">I’m Dimetri Peters, a final-year IT Software Development student focused on C# and .NET backend engineering, APIs and practical full-stack applications.</p>
             <div className="hero-actions">
               <a className="button button-primary" href="#projects">Explore my work <ArrowUpRight size={17} /></a>
               <a className="button button-quiet" href="#contact">Let’s connect <ArrowRight size={16} /></a>
             </div>
-            <div className="hero-meta"><span><MapPin size={14} /> Gqeberha, South Africa</span><span className="meta-divider" /><span>Software Development</span></div>
+            <div className="hero-meta"><span><MapPin size={14} /> Gqeberha, South Africa</span><span className="meta-divider" /><span>Rosebank College · 2024–2026</span></div>
           </div>
           <div className="hero-visual">
             <div className="visual-orbit orbit-a" /><div className="visual-orbit orbit-b" />
@@ -123,33 +93,32 @@ function App() {
         </section>
 
         <section className="intro-strip">
-          <div className="section-wrap strip-inner"><span className="strip-label">CURRENT FOCUS</span><div className="strip-items"><span>C# & .NET</span><i /><span>Backend engineering</span><i /><span>Database design</span><i /><span>Continuous learning</span></div></div>
+          <div className="section-wrap strip-inner"><span className="strip-label">CURRENT FOCUS</span>          <div className="strip-items"><span>C# & .NET</span><i /><span>RESTful APIs</span><i /><span>Relational databases</span><i /><span>Full-stack development</span></div></div>
         </section>
 
         <section className="section-wrap about-section" id="about">
           <div className="section-kicker">01 / ABOUT ME</div>
           <div className="about-grid">
             <div><h2>Curious mind.<br /><span className="muted-heading">Practical builder.</span></h2></div>
-            <div className="about-copy"><p className="large-copy">I’m developing my skills as a software developer, with a strong interest in backend engineering and building applications that work beyond the screen.</p><p>Through academic and personal projects, I’ve been working with C#, .NET, databases, desktop applications and Android development. I enjoy taking an idea, breaking it into manageable pieces and turning it into something functional.</p><p>My current goal is to grow into a junior software developer role where I can contribute, keep learning and build dependable software with a team.</p><a className="text-link" href={GITHUB} target="_blank" rel="noreferrer">Explore my GitHub profile <ArrowUpRight size={15} /></a></div>
+            <div className="about-copy"><p className="large-copy">I’m a final-year IT Software Development student focused on C# and .NET backend engineering, RESTful APIs and relational databases.</p><p>I build mobile, web and desktop applications, applying object-oriented programming and practical application architecture to real-world problems. My project work includes authenticated APIs, integration testing and full-stack products.</p><p>I’m looking for a Junior Software Developer or Graduate Developer role where I can contribute to dependable software and keep growing with a team.</p><div className="education-note"><b>Diploma in Information Technology: Software Development</b><span>Rosebank College · Gqeberha · 2024–2026</span></div><a className="text-link" href={GITHUB} target="_blank" rel="noreferrer">Explore my GitHub profile <ArrowUpRight size={15} /></a></div>
           </div>
         </section>
 
         <section className="section-wrap skills-section" id="skills">
-          <div className="section-heading"><div><div className="section-kicker">02 / TOOLKIT</div><h2>Tools I work with<span className="period">.</span></h2></div><p>Technologies I’m using to build, experiment<br />and strengthen my foundations.</p></div>
+          <div className="section-heading"><div><div className="section-kicker">02 / TOOLKIT</div><h2>Tools I work with<span className="period">.</span></h2></div><p>Technologies I’ve applied across my API,<br />full-stack and mobile projects.</p></div>
           <div className="skills-grid">{skills.map(({ title, detail, icon: Icon }, i) => <article className="skill-card" key={title}><div className="skill-top"><span className="skill-icon"><Icon size={20} /></span><span className="skill-index">0{i + 1}</span></div><h3>{title}</h3><p>{detail}</p><div className="skill-rule" /></article>)}</div>
-          <div className="tech-cloud"><span>ALSO EXPLORING</span>{["JavaScript", "React", "HTML & CSS", "REST APIs", "Entity Framework Core", "GitHub"].map((s) => <b key={s}>{s}</b>)}</div>
+          <div className="tech-cloud"><span>ALSO WORKED WITH</span>{["Java", "Python", "PHP", "HTML & CSS", "Firebase", "Clerk"].map((s) => <b key={s}>{s}</b>)}</div>
         </section>
 
         <section className="projects-section" id="projects">
           <div className="section-wrap">
-            <div className="section-heading project-heading"><div><div className="section-kicker">03 / SELECTED WORK</div><h2>Projects in progress<span className="period">.</span></h2></div><p>A selection of applications and concepts<br />that reflect what I’ve been learning.</p></div>
-            <div className="project-toolbar"><span className="project-count">SHOWING <b>{String(visibleProjects.length).padStart(2, "0")}</b> PROJECTS</span><div className="filters">{categories.map((c) => <button key={c} onClick={() => setFilter(c)} className={filter === c ? "filter active" : "filter"}>{c}</button>)}</div></div>
-            <div className="projects-grid">{visibleProjects.map((p) => <article className={`project-card ${p.accent}`} key={p.number}>
+            <div className="section-heading project-heading"><div><div className="section-kicker">03 / SELECTED WORK</div><h2>Featured projects<span className="period">.</span></h2></div><p>Three projects that best represent<br />my backend and full-stack experience.</p></div>
+            <div className="project-toolbar"><span className="project-count">FEATURED <b>{String(projects.length).padStart(2, "0")}</b> PROJECTS</span></div>
+            <div className="projects-grid">{projects.map((p) => <article className={`project-card ${p.accent}`} key={p.number}>
               <div className="project-card-top"><span className="project-number">PROJECT / {p.number}</span><span className="project-icon">{p.icon}</span></div>
               <div className="project-art"><div className="art-grid" /><div className="art-symbol">{p.icon}</div><span className="art-type">{p.type.toUpperCase()}</span></div>
-              <div className="project-info"><div className="project-title-row"><div><span className="project-type">{p.type}</span><h3>{p.name}</h3></div><span className="project-status">{p.status}</span></div><p>{p.description}</p><div className="tag-list">{p.stack.map((s) => <span key={s}>{s}</span>)}</div><a className="project-link" href={p.href} target="_blank" rel="noreferrer"><Github size={15} /> {p.href === GITHUB ? "View GitHub profile" : "View repository"} <ArrowUpRight size={15} /></a></div>
+              <div className="project-info"><div className="project-title-row"><div><span className="project-type">{p.type}</span><h3>{p.name}</h3></div><span className="project-status">{p.status}</span></div><p>{p.description}</p><div className="tag-list">{p.stack.map((s) => <span key={s}>{s}</span>)}</div><a className="project-link" href={p.href} target="_blank" rel="noreferrer"><Github size={15} /> View repository <ArrowUpRight size={15} /></a></div>
             </article>)}</div>
-            <div className="projects-footnote"><Sparkles size={15} /> Some projects are academic or learning projects. Repository links point to my GitHub profile where individual repository links are not yet configured.</div>
             <div className="all-projects"><a className="button button-outline" href={GITHUB} target="_blank" rel="noreferrer">See all repositories <ArrowUpRight size={16} /></a></div>
           </div>
         </section>

@@ -33,12 +33,9 @@ Render rebuilds the site automatically whenever changes are pushed to `main`.
 
 ## Personalise before publishing
 
-- Check every project description and status for accuracy.
-- Replace GitHub profile links on project cards with the exact repository URLs.
-- Add your LinkedIn URL if you want it displayed.
-- Update the skills list as your experience grows.
-- The `Firebase*` tag on Equili is a placeholder-style technology label: remove it if the project did not use Firebase.
-- The FinSight AI Analyzer card links to the known repository `MagnificentGarren/FinSight-AI-Analyzer`.
+- Keep the featured projects, descriptions, and technology lists aligned with your CV.
+- Update repository links when project repositories change.
+- Add or update contact and professional profile links as needed.
 
 ## Stack
 
