@@ -23,6 +23,14 @@ npm run build
 npm run preview
 ```
 
+## Deploy on Render
+
+1. In Render, choose **New > Blueprint** and connect this repository.
+2. Select the `main` branch. Render will use `render.yaml` to create the static site.
+3. When the deployment finishes, open the `onrender.com` URL shown in the Render dashboard.
+
+Render rebuilds the site automatically whenever changes are pushed to `main`.
+
 ## Personalise before publishing
 
 - Check every project description and status for accuracy.
