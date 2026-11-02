@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import {
   ArrowDownRight, ArrowUpRight, Github, Mail,
-  Menu, X, Code2, Database, Smartphone, Terminal, GitBranch, MapPin, Phone
+  Menu, X, Code2, Database, Smartphone, Terminal, GitBranch, MapPin, Phone, Clock3
 } from "lucide-react";
 
 const GITHUB = "https://github.com/dimetri-softdev";
@@ -48,6 +48,18 @@ const projects = [
     stack: ["C#", "ASP.NET Core MVC", "Entity Framework Core", "SQL Server", "ASP.NET Identity"],
     accent: "relief", icon: "✳", status: "Full-stack project", preview: "relief",
     href: "https://github.com/dimetri-softdev/Gift-of-the-Givers-Foundation"
+  },
+  {
+    number: "07", name: "PlayBookAI", type: "AI-powered SaaS ecosystem",
+    description: "A platform concept for discovering emerging digital business opportunities and turning a chosen strategy into an actionable roadmap, with AI guidance, competitor insights and web and mobile access.",
+    stack: ["ASP.NET Core", "AI co-pilot", "REST API", "Trend discovery", "Mobile app"],
+    accent: "violet", icon: "✦", status: "Coming soon", preview: "playbook"
+  },
+  {
+    number: "08", name: "AuraLearn", type: "E-learning platform",
+    description: "An LMS concept for guided online learning, bringing together a student dashboard, interactive AI tutoring and an educator course-building studio.",
+    stack: ["ASP.NET Core", "LMS", "AI tutor", "Course builder", "Responsive web"],
+    accent: "blue", icon: "✧", status: "Coming soon", preview: "auralearn"
   }
 ];
 
@@ -56,8 +68,8 @@ function ProjectPreview({ project }) {
     <div className={`project-preview ${project.preview}`} role="img" aria-label={`${project.name} concept preview`}>
       <div className="preview-topbar">
         <span className="preview-mark">{project.icon}</span>
-        <b>{project.preview === "clinic" ? "Carepoint" : project.preview === "store" ? "Everyday" : project.preview === "clothing" ? "PastTimes" : project.preview === "finance" ? "FineX" : project.preview === "relief" ? "Relief Connect" : "Job Hunter"}</b>
-        <span className="preview-status"><i /> {project.preview === "clinic" ? "Practice portal" : project.preview === "store" || project.preview === "clothing" ? "Online store" : project.preview === "finance" ? "Your finances" : project.preview === "relief" ? "Relief response" : "Application tracker"}</span>
+        <b>{project.preview === "clinic" ? "Carepoint" : project.preview === "store" ? "Everyday" : project.preview === "clothing" ? "PastTimes" : project.preview === "finance" ? "FineX" : project.preview === "relief" ? "Relief Connect" : project.preview === "playbook" ? "PlayBookAI" : project.preview === "auralearn" ? "AuraLearn" : "Job Hunter"}</b>
+        <span className="preview-status"><i /> {project.preview === "clinic" ? "Practice portal" : project.preview === "store" || project.preview === "clothing" ? "Online store" : project.preview === "finance" ? "Your finances" : project.preview === "relief" ? "Relief response" : project.preview === "playbook" ? "Opportunity radar" : project.preview === "auralearn" ? "Learning dashboard" : "Application tracker"}</span>
       </div>
       {project.preview === "clinic" && (
         <div className="preview-content clinic-content">
@@ -114,6 +126,20 @@ function ProjectPreview({ project }) {
             <div><span>Saved <b>02</b></span><i>Backend Developer</i><i>Full-stack Intern</i></div>
           </div>
           <div className="preview-order"><span>Next step</span><b>Prepare for interview</b><i>In progress</i></div>
+        </div>
+      )}
+      {project.preview === "playbook" && (
+        <div className="preview-content concept-content">
+          <div className="preview-greeting"><span>YOUR NEXT BIG IDEA</span><b>Opportunity radar</b></div>
+          <div className="concept-feature"><i>↗</i><span><b>Digital products</b><small>Rising interest · Early opportunity</small></span><strong>RISING</strong></div>
+          <div className="concept-steps"><span>Discover</span><i /><span>Plan</span><i /><span>Launch</span></div>
+        </div>
+      )}
+      {project.preview === "auralearn" && (
+        <div className="preview-content concept-content learn-content">
+          <div className="preview-greeting"><span>YOUR LEARNING SPACE</span><b>Keep your momentum</b></div>
+          <div className="learn-progress"><span><b>Product design</b><small>Module 4 of 6</small></span><strong>68%</strong><i><b /></i></div>
+          <div className="learn-tutor"><i>✦</i><span><b>AI tutor</b><small>Ready when you are</small></span><strong>ASK A QUESTION ↗</strong></div>
         </div>
       )}
       <span className="preview-caption">ILLUSTRATIVE PROJECT PREVIEW</span>
@@ -194,10 +220,10 @@ function App() {
           <div className="section-wrap">
             <div className="section-heading project-heading"><div><div className="section-kicker">03 / SELECTED WORK</div><h2>Featured projects<span className="period">.</span></h2></div><p>A selection of the apps and platforms<br />I’ve built across different domains.</p></div>
             <div className="project-toolbar"><span className="project-count">FEATURED <b>{String(projects.length).padStart(2, "0")}</b> PROJECTS</span></div>
-            <div className="projects-grid">{projects.map((p) => <article className={`project-card ${p.accent}`} key={p.number}>
+            <div className="projects-grid">{projects.map((p) => <article className={`project-card ${p.accent}${p.status === "Coming soon" ? " coming-soon" : ""}`} key={p.number}>
               <div className="project-card-top"><span className="project-number">PROJECT / {p.number}</span><span className="project-icon">{p.icon}</span></div>
               <ProjectPreview project={p} />
-              <div className="project-info"><div className="project-title-row"><div><span className="project-type">{p.type}</span><h3>{p.name}</h3></div><span className="project-status">{p.status}</span></div><p>{p.description}</p><div className="tag-list">{p.stack.map((s) => <span key={s}>{s}</span>)}</div><a className="project-link" href={p.href} target="_blank" rel="noreferrer"><Github size={15} /> View repository <ArrowUpRight size={15} /></a></div>
+              <div className="project-info"><div className="project-title-row"><div><span className="project-type">{p.type}</span><h3>{p.name}</h3></div><span className="project-status">{p.status}</span></div><p>{p.description}</p><div className="tag-list">{p.stack.map((s) => <span key={s}>{s}</span>)}</div>{p.href ? <a className="project-link" href={p.href} target="_blank" rel="noreferrer"><Github size={15} /> View repository <ArrowUpRight size={15} /></a> : <span className="project-link coming-soon-link"><Clock3 size={15} /> Coming soon</span>}</div>
             </article>)}</div>
             <div className="all-projects"><a className="button button-outline" href={GITHUB} target="_blank" rel="noreferrer">See all repositories <ArrowUpRight size={16} /></a></div>
           </div>
