@@ -32,6 +32,10 @@
 .project-preview{height:220px;position:relative;overflow:hidden;padding:15px 16px 25px;background:radial-gradient(ellipse at 30% 20%,#8261c42e,transparent 55%),#121620;color:#f2f3f7}
 .project-card.mint .project-preview{background:radial-gradient(ellipse at 25% 15%,#4cae8c30,transparent 55%),#11191a}
 .project-card.blue .project-preview{background:radial-gradient(ellipse at 25% 15%,#4e82c630,transparent 55%),#111722}
+.project-card.clothing .project-preview{background:radial-gradient(ellipse at 25% 15%,#c16f9c32,transparent 55%),#1d151b}
+.project-card.clothing .preview-mark{background:#c16f9c30;color:#f0add1}
+.project-card.relief .project-preview{background:radial-gradient(ellipse at 25% 15%,#4cae8c30,transparent 55%),#111a19}
+.project-card.relief .preview-mark{background:#4cae8c30;color:#98e6c6}
 .preview-topbar{height:32px;display:flex;align-items:center;gap:8px;border-bottom:1px solid #ffffff17;padding-bottom:9px}
 .preview-mark{width:21px;height:21px;display:grid;place-items:center;border-radius:6px;background:#9c80ea30;color:#d2c3ff;font-size:13px}
 .project-card.mint .preview-mark{background:#4cae8c30;color:#98e6c6}
@@ -58,6 +62,9 @@
 .product-shape{height:45px;display:block;margin-bottom:5px;border-radius:4px;background:radial-gradient(circle at 50% 40%,#d1b3ff,#7156a9 55%,#2a2337)}
 .shape-two{background:radial-gradient(ellipse at 50% 40%,#e0c49d,#7b654a 55%,#29251f)}
 .shape-three{background:radial-gradient(circle at 50% 45%,#b5d7cf,#50786d 55%,#202e2a)}
+.clothing-one{background:linear-gradient(145deg,#c59bae,#74465a 60%,#30232a)}
+.clothing-two{background:linear-gradient(145deg,#a8a39c,#55504a 60%,#292622)}
+.clothing-three{background:linear-gradient(145deg,#cfb57e,#8a6743 60%,#30271f)}
 .preview-products small,.preview-products b{display:block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .preview-products small{font-size:7px;color:#b1b5c1}
 .preview-products b{font-size:8px;margin-top:4px}
@@ -65,6 +72,32 @@
 .preview-order>span{color:#a5a9b5}
 .preview-order>b{font-size:8px}
 .preview-order>i{margin-left:auto;color:#9fcbff;font-size:7px;font-style:normal}
+.finance-balance{position:relative;margin:10px 0;padding:8px 10px;border:1px solid #ffffff14;border-radius:5px;background:#ffffff07}
+.finance-balance>span,.finance-balance>b{display:block}
+.finance-balance>span{font-size:7px;color:#a5a9b5}
+.finance-balance>b{font-size:15px;margin-top:3px}
+.finance-balance>i{position:absolute;right:9px;bottom:10px;color:#8ce0b7;font:7px "DM Mono",monospace}
+.finance-bars{height:45px;display:flex;align-items:end;gap:6px;position:relative;margin:0 4px 8px;padding-bottom:12px}
+.finance-bars>i{flex:1;border-radius:3px 3px 0 0;background:linear-gradient(180deg,#bb9df1,#6e54a3);height:45%}
+.finance-bars>i:nth-child(2){height:70%}
+.finance-bars>i:nth-child(3){height:55%}
+.finance-bars>i:nth-child(4){height:88%}
+.finance-bars>i:nth-child(5){height:62%}
+.finance-bars>i:nth-child(6){height:76%}
+.finance-bars>i:nth-child(7){height:48%}
+.finance-bars>span{position:absolute;left:0;bottom:0;color:#a5a9b5;font:6px "DM Mono",monospace}
+.relief-campaign{display:flex;align-items:center;gap:8px;margin:10px 0;padding:8px;border:1px solid #ffffff14;border-radius:5px;background:#ffffff07}
+.relief-campaign>i{width:26px;height:26px;flex:none;border-radius:5px;background:linear-gradient(145deg,#83c99f,#39735d)}
+.relief-campaign>span{min-width:0}
+.relief-campaign>span>b,.relief-campaign>span>small{display:block}
+.relief-campaign>span>b{font-size:8px}
+.relief-campaign>span>small{margin-top:3px;color:#a5a9b5;font-size:6px}
+.relief-campaign>strong{margin-left:auto;color:#8ce0b7;font:6px "DM Mono",monospace}
+.relief-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:6px}
+.relief-stats>span{min-width:0}
+.relief-stats small,.relief-stats b{display:block}
+.relief-stats small{color:#a5a9b5;font-size:6px}
+.relief-stats b{margin-top:3px;font-size:7px}
 .preview-board{display:grid;grid-template-columns:repeat(3,1fr);gap:6px}
 .preview-board>div{min-width:0;padding:6px 5px;border:1px solid #ffffff12;border-radius:5px;background:#ffffff05}
 .preview-board>div>span{display:block;font-size:7px;color:#b7c8e8}

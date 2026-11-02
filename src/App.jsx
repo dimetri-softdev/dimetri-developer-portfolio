@@ -27,6 +27,27 @@ const projects = [
     stack: ["Next.js", "TypeScript", "PostgreSQL", "Prisma", "Clerk", "Python"],
     accent: "blue", icon: "↗", status: "Full-stack project", preview: "jobs",
     href: "https://github.com/dimetri-softdev/Job-Hunter"
+  },
+  {
+    number: "04", name: "FineX AI", type: "Personal finance app",
+    description: "An offline-first finance companion for tracking expenses, managing budgets and understanding spending. The concept includes receipt scanning, spending insights and secure sync across devices.",
+    stack: ["Mobile", "Offline-first", "Receipt OCR", "Budgeting", "Spending insights"],
+    accent: "violet", icon: "◒", status: "Mobile app", preview: "finance",
+    href: "https://github.com/dimetri-softdev/FineX-AI"
+  },
+  {
+    number: "05", name: "PastTimes Online Clothing Store", type: "E-commerce website",
+    description: "A PHP and MySQL clothing store where customers can browse items, manage a cart and wishlist, check out, and review purchase history. Includes seller product tools and an admin dashboard.",
+    stack: ["PHP", "MySQL", "E-commerce", "Authentication", "Admin dashboard"],
+    accent: "clothing", icon: "◇", status: "Web application", preview: "clothing",
+    href: "https://github.com/dimetri-softdev/PastTimes-Online-Clothing-Store"
+  },
+  {
+    number: "06", name: "Gift of the Givers Foundation", type: "Relief management platform",
+    description: "An ASP.NET Core MVC platform for coordinating relief projects, donations and volunteer applications. Supports recurring and multi-currency donations, plus role-based portals for donors, volunteers, employees and admins.",
+    stack: ["C#", "ASP.NET Core MVC", "Entity Framework Core", "SQL Server", "ASP.NET Identity"],
+    accent: "relief", icon: "✳", status: "Full-stack project", preview: "relief",
+    href: "https://github.com/dimetri-softdev/Gift-of-the-Givers-Foundation"
   }
 ];
 
@@ -35,8 +56,8 @@ function ProjectPreview({ project }) {
     <div className={`project-preview ${project.preview}`} role="img" aria-label={`${project.name} concept preview`}>
       <div className="preview-topbar">
         <span className="preview-mark">{project.icon}</span>
-        <b>{project.preview === "clinic" ? "Carepoint" : project.preview === "store" ? "Everyday" : "Job Hunter"}</b>
-        <span className="preview-status"><i /> {project.preview === "clinic" ? "Practice portal" : project.preview === "store" ? "Online store" : "Application tracker"}</span>
+        <b>{project.preview === "clinic" ? "Carepoint" : project.preview === "store" ? "Everyday" : project.preview === "clothing" ? "PastTimes" : project.preview === "finance" ? "FineX" : project.preview === "relief" ? "Relief Connect" : "Job Hunter"}</b>
+        <span className="preview-status"><i /> {project.preview === "clinic" ? "Practice portal" : project.preview === "store" || project.preview === "clothing" ? "Online store" : project.preview === "finance" ? "Your finances" : project.preview === "relief" ? "Relief response" : "Application tracker"}</span>
       </div>
       {project.preview === "clinic" && (
         <div className="preview-content clinic-content">
@@ -55,6 +76,33 @@ function ProjectPreview({ project }) {
             <div><i className="product-shape shape-three" /><small>Minimal watch</small><b>R 1 199</b></div>
           </div>
           <div className="preview-order"><span>Recent order</span><b>Order #2048</b><i>Processing</i></div>
+        </div>
+      )}
+      {project.preview === "clothing" && (
+        <div className="preview-content store-content">
+          <div className="preview-greeting"><span>PASTTIMES COLLECTION</span><b>Find your next favourite</b></div>
+          <div className="preview-products">
+            <div><i className="product-shape clothing-one" /><small>Everyday layers</small><b>SHOP WOMENS</b></div>
+            <div><i className="product-shape clothing-two" /><small>Modern essentials</small><b>SHOP MENS</b></div>
+            <div><i className="product-shape clothing-three" /><small>Seasonal picks</small><b>NEW ARRIVALS</b></div>
+          </div>
+          <div className="preview-order"><span>YOUR BAG</span><b>Curated for you</b><i>Browse pieces</i></div>
+        </div>
+      )}
+      {project.preview === "finance" && (
+        <div className="preview-content finance-content">
+          <div className="preview-greeting"><span>YOUR MONEY, MADE CLEARER</span><b>Monthly overview</b></div>
+          <div className="finance-balance"><span>Available balance</span><b>R 12,480.00</b><i>↑ 8% this month</i></div>
+          <div className="finance-bars"><i /><i /><i /><i /><i /><i /><i /><span>WEEKLY SPENDING</span></div>
+          <div className="preview-order"><span>RECENT RECEIPT</span><b>Groceries · Today</b><i>Scanned</i></div>
+        </div>
+      )}
+      {project.preview === "relief" && (
+        <div className="preview-content relief-content">
+          <div className="preview-greeting"><span>RESPONDING WHERE IT MATTERS</span><b>Relief project overview</b></div>
+          <div className="relief-campaign"><i /><span><b>Community food support</b><small>Active response · Eastern Cape</small></span><strong>ACTIVE</strong></div>
+          <div className="relief-stats"><span><small>Raised</small><b>R 84,250</b></span><span><small>Volunteers</small><b>18 ready</b></span><span><small>Response</small><b>In progress</b></span></div>
+          <div className="preview-order"><span>SUPPORT A CAUSE</span><b>Donate or volunteer</b><i>Make an impact</i></div>
         </div>
       )}
       {project.preview === "jobs" && (
@@ -144,7 +192,7 @@ function App() {
 
         <section className="projects-section" id="projects">
           <div className="section-wrap">
-            <div className="section-heading project-heading"><div><div className="section-kicker">03 / SELECTED WORK</div><h2>Featured projects<span className="period">.</span></h2></div><p>Three projects that best represent<br />my backend and full-stack experience.</p></div>
+            <div className="section-heading project-heading"><div><div className="section-kicker">03 / SELECTED WORK</div><h2>Featured projects<span className="period">.</span></h2></div><p>A selection of the apps and platforms<br />I’ve built across different domains.</p></div>
             <div className="project-toolbar"><span className="project-count">FEATURED <b>{String(projects.length).padStart(2, "0")}</b> PROJECTS</span></div>
             <div className="projects-grid">{projects.map((p) => <article className={`project-card ${p.accent}`} key={p.number}>
               <div className="project-card-top"><span className="project-number">PROJECT / {p.number}</span><span className="project-icon">{p.icon}</span></div>
